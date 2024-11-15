@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const excelRoutes = require("./Routes/excelRoute.js");
 
-console.log("Email:", process.env.EMAIL);
-console.log("Email Password:", process.env.EMAIL_PASSWORD);
 
 const app = express();
 

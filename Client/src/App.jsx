@@ -4,6 +4,7 @@ import axios from "axios";
 const App = () => {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false); // Added loading state
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -20,6 +21,8 @@ const App = () => {
     const formData = new FormData();
     formData.append("file", file);
 
+    setLoading(true); // Set loading to true when the request starts
+
     try {
       const response = await axios.post(
         "http://localhost:5000/api/excel/upload",
@@ -32,6 +35,8 @@ const App = () => {
     } catch (error) {
       console.error(error);
       setMessage("Error uploading file or sending emails.");
+    } finally {
+      setLoading(false); // Set loading to false once the request is finished
     }
   };
 
@@ -40,9 +45,15 @@ const App = () => {
       <h1>Upload Excel File</h1>
       <form onSubmit={handleSubmit}>
         <input type="file" accept=".xlsx" onChange={handleFileChange} />
-        <button type="submit">Upload and Send Emails</button>
+        <button type="submit" disabled={loading}>Upload and Send Emails</button>
       </form>
-      {message && <p>{message}</p>}
+
+      {/* Show loading spinner or message */}
+      {loading ? (
+        <p>Processing your request, please wait...</p>
+      ) : (
+        message && <p>{message}</p>
+      )}
     </div>
   );
 };
