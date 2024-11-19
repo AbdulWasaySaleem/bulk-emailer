@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const DataSchema = new mongoose.Schema({
   HR_name: String,
@@ -6,6 +6,6 @@ const DataSchema = new mongoose.Schema({
   Email: String,
 });
 
-const DataModel = mongoose.model('Data', DataSchema);
+const DataModel = mongoose.model("Data", DataSchema);
 
 module.exports = DataModel;

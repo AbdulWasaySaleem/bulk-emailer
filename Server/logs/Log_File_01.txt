@@ -1,0 +1,10 @@
+Successfully sent email to Company A
+HR Details:
+Name: Wasay
+Email: gamingwith14326@gmail.com
+---------------------------------------------
+Successfully sent email to Company B
+HR Details:
+Name: wasay 2
+Email: alythan69@gmail.com
+---------------------------------------------
